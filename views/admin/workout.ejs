@@ -1,0 +1,362 @@
+<%- include('../layouts/header') %>
+<%- include('../layouts/sidebar') %>
+
+<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+  <div class="d-flex flex-column flex-column-fluid">
+    <div id="kt_app_toolbar" class="app-toolbar pt-5">
+      <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+        <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+          <div class="page-title d-flex flex-column gap-1 me-3">
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold">
+              <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                <a href="../dist/index.html" class="text-gray-500">
+                  <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                </a>
+              </li>
+              <li class="breadcrumb-item">
+                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+              </li>
+              <a href="/dashboard">
+                <li class="ms-2 breadcrumb-item text-gray-700 fw-bold lh-1">Dashboard</li>
+              </a>
+              <li class="breadcrumb-item">
+                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+              </li>
+              <a href="/viewworkout">
+                <li class="ms-2 breadcrumb-item text-gray-700 fw-bold lh-1">View Workout</li>
+              </a>
+              <li class="breadcrumb-item">
+                <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+              </li>
+              <a href="/workout">
+                <li class="ms-2 breadcrumb-item text-gray-700 fw-bold lh-1">Workout</li>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+      <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="card mb-5 mb-xl-10">
+          <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+            <div class="card-title m-0">
+              <h3 class="fw-bold m-0">Workout Details</h3>
+            </div>
+          </div>
+          <div class="collapse show">
+            <form action="/workout" method="post" enctype="multipart/form-data" class="form">
+              <input type="hidden" name="_id">
+              <input type="hidden" name="currentAvatar">
+
+              <div class="card-body border-top p-9">
+                <div class="row mb-6">
+                  <label class="col-lg-3 required col-form-label fw-semibold fs-6">Image</label>
+                  <div class="col-lg-9">
+                    <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('../../../assets/media/svg/avatars/blank.svg')">
+                      <img class="galleryimg image-input-wrapper w-125px h-125px" src="">
+                      <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                        <i class="ki-duotone ki-pencil fs-7">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                        </i>
+                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg" required />
+                        <input type="hidden" name="avatar_remove" />
+                      </label>
+                      <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                        <i class="ki-duotone ki-cross fs-2">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                        </i>
+                      </span>
+                    </div>
+                    <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                  </div>
+                </div>
+                <div class="row mb-6">
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Workout</label>
+                  <div class="col-lg-9">
+                    <div class="row">
+                      <div class="col-lg-12 fv-row">
+                        <input type="text" name="workouttitle" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Enter workout" required />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Your HTML code with radio buttons and input fields -->
+                <div class="row mb-6">
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Plan
+                    Selection</label>
+                  <div class="col-lg-9">
+                    <div class="row">
+                      <div class="col-lg-2">
+                        <div class="form-check form-check-custom form-check-solid">
+                          <input class="form-check-input" type="radio" value="Single Plan" id="singleplan" name="plan" />
+                          <label class="col-form-label ms-2 fw-semibold fs-6" for="singleplan">Single Plan</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="form-check form-check-custom form-check-solid">
+                          <input class="form-check-input" type="radio" value="Weekly Plan" id="weeklyplan" name="plan" />
+                          <label class="col-form-label ms-2 fw-semibold fs-6" for="weeklyplan">Weekly Plan</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-6 d-none" id="workout">
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Exercise</label>
+                  <div class="col-lg-9 fv-row">
+                    <div class="form-group">
+                      <div data-repeater-list="workout">
+                        <div data-repeater-item>
+                          <div class="form-group row mb-5">
+                            <div class="col-md-3">
+                              <select name="exerciseId" aria-label="Select a Exercise" data-control="select2" data-placeholder="Select a Exercise" data-allow-clear="true" class="form-select form-select-solid form-select-lg">
+                                <option>
+                                </option>
+                                <option value="">Push Ups
+                                </option>
+                                <option value="">Mount Climbers
+                                </option>
+                                <option value="">Squats
+                                </option>
+                              </select>
+                            </div>
+
+                            <div class="col-md-2">
+                              <input class="form-check-input mt-3" type="radio" value="Rep Based Sets" id="repBasedRadio" name="exerciseType" />
+                              <label class="col-form-label ms-2 fw-semibold fs-6">Rep
+                                Based
+                                Sets</label>
+                            </div>
+
+                            <div class="col-md-2">
+                              <input class="form-check-input mt-3" type="radio" value="Time Based" id="timeBasedRadio" name="exerciseType" />
+                              <label class="col-form-label ms-2 fw-semibold fs-6">Time
+                                Based</label>
+                            </div>
+
+                            <div class="col-md-2">
+                              <a href="javascript:;" data-repeater-delete class="btn btn-flex btn-sm btn-light-danger">
+                                <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                Delete
+                              </a>
+                            </div>
+
+                            <div class="row justify-content-center">
+                              <div id="repsInput" class="form-group col-md-3 mb-6 mt-6 d-none">
+                                <div class="fv-row">
+                                  <input type="text" class="form-control form-control-lg" name="reps" data-kt-repeater="reps" placeholder="Enter reps" />
+                                </div>
+                              </div>
+                              <div id="setsInput" class="form-group col-md-3 mb-6 mt-6 d-none">
+                                <div class="fv-row">
+                                  <input type="text" class="form-control form-control-lg" name="sets" data-kt-repeater="sets" placeholder="Enter sets" />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div id="timeInput" class="form-group row mt-6 d-none">
+                              <label class="col-lg-5 col-form-label fw-semibold fs-6"></label>
+                              <div class="col-lg-3 fv-row">
+                                <input type="text" class="form-control form-control-lg" name="time" data-kt-repeater="time" placeholder="Enter time (Seconds)" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <a href="javascript:;" data-repeater-create class="btn btn-flex btn-light-primary">
+                          <i class="ki-duotone ki-plus fs-3"></i>
+                          Add
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--begin::Repeater-->
+                <div class="row mb-6 d-none" id="kt_docs_repeater_nested">
+                  <!--begin::Form group-->
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Exercise</label>
+                  <div class="col-lg-9 fv-row">
+                    <div class="form-group">
+                      <div data-repeater-list="kt_docs_repeater_nested_outer">
+                        <div data-repeater-item>
+                          <div class="form-group row mb-5">
+                            <div class="col-md-2">
+                              <input type="text" name="week" class="form-control mb-2 mb-md-0" placeholder="Enter Week" />
+                            </div>
+                            <div class="col-md-10">
+                              <div class="inner-repeater">
+                                <div data-repeater-list="kt_docs_repeater_nested_inner">
+                                  <div data-repeater-item>
+                                    <div class="form-group row mb-5">
+                                      <div class="col-md-3">
+                                        <select class="form-select form-select-lg" aria-label="Select a Day" data-control="select2" data-placeholder="Select a Day" data-allow-clear="true" name="day" data-kt-repeater="day">
+                                          <option value="" disabled selected>Select
+                                            Day..</option>
+                                          <option value="Day 1">
+                                            Day 1</option>
+                                          <option value="Day 2">
+                                            Day 2</option>
+                                          <option value="Day 3">
+                                            Day 3</option>
+                                          <option value="Day 4">
+                                            Day 4</option>
+                                          <option value="Day 5">
+                                            Day 5</option>
+                                          <option value="Day 6">
+                                            Day 6</option>
+                                          <option value="Day 7">
+                                            Day 7</option>
+                                        </select>
+                                      </div>
+
+                                      <div class="col-md-9">
+                                        <div class="subinner-repeater">
+                                          <div data-repeater-list="kt_docs_repeater_nested_subinner">
+                                            <div data-repeater-item>
+                                              <div class="form-group row mb-5">
+                                                <div class="col-md-3">
+                                                  <select name="exerciseId" aria-label="Select a Exercise" data-control="select2" data-placeholder="Select a Exercise" data-allow-clear="true" class="form-select form-select-solid form-select-lg">
+                                                    <option>
+                                                    </option>
+                                                    <option>
+                                                    </option>
+                                                    <option value="">Push Ups
+                                                    </option>
+                                                    <option value="">Mount Climbers
+                                                    </option>
+                                                    <option value="">Squats
+                                                    </option>
+                                                  </select>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                  <input class="form-check-input mt-3" type="radio" value="Rep Based Sets" id="repBasedRadio" name="exerciseType" />
+                                                  <label class="col-form-label ms-2 fw-semibold fs-6">Rep
+                                                    Based</label>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                  <input class="form-check-input mt-3" type="radio" value="Time Based" id="timeBasedRadio" name="exerciseType" />
+                                                  <label class="col-form-label ms-2 fw-semibold fs-6">Time
+                                                    Based</label>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                  <a href="javascript:;" data-repeater-delete class="btn btn-flex btn-sm btn-light-danger">
+                                                    <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                                    Delete
+                                                  </a>
+                                                </div>
+
+                                                <div class="row">
+
+                                                  <label class="col-md-3"></label>
+                                                  <div id="repsInput" class="form-group col-md-4 mb-6 mt-6 d-none">
+                                                    <div class="fv-row">
+                                                      <input type="text" class="form-control form-control-lg" name="reps" data-kt-repeater="reps" placeholder="Enter reps" />
+                                                    </div>
+                                                  </div>
+                                                  <div id="setsInput" class="form-group col-md-4 mb-6 mt-6 d-none">
+                                                    <div class="fv-row">
+                                                      <input type="text" class="form-control form-control-lg" name="sets" data-kt-repeater="sets" placeholder="Enter sets" />
+                                                    </div>
+                                                  </div>
+
+                                                </div>
+
+                                                <div id="timeInput" class="form-group row mt-6 d-none">
+
+                                                  <label class="col-lg-6 col-form-label fw-semibold fs-6"></label>
+                                                  <div class="col-lg-4 fv-row">
+                                                    <input type="text" class="form-control form-control-lg" name="time" data-kt-repeater="time" placeholder="Enter time (Seconds)" />
+                                                  </div>
+
+                                                </div>
+
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <a href="javascript:;" data-repeater-create class="btn btn-flex btn-light-primary">
+                                              <i class="ki-duotone ki-plus fs-3"></i>
+                                              Add Exercise
+                                            </a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-md-2 mt-5">
+                                        <a href="javascript:;" data-repeater-delete class="btn btn-flex btn-sm btn-light-danger">
+                                          <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                          Delete Day
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <a href="javascript:;" data-repeater-create class="btn btn-flex btn-light-primary">
+                                    <i class="ki-duotone ki-plus fs-3"></i>
+                                    Add Days
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <a href="javascript:;" data-repeater-delete class="btn btn-sm btn-flex btn-light-danger mt-3 mt-md-9">
+                                <i class="ki-duotone ki-trash fs-5"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                Delete Week
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <a href="javascript:;" data-repeater-create class="btn btn-flex btn-light-primary">
+                          <i class="ki-duotone ki-plus fs-3"></i>
+                          Add Week
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-6">
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Availability</label>
+                  <div class="col-lg-9">
+                    <select name="availability" aria-label="Select a Type" data-control="select2" class="form-select form-select-solid form-select-lg">
+                      <option value="" disabled selected>Select a Availability..
+                      </option>
+                      <option value="Free">Free</option>
+                      <option value="Premium">Premium</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-6">
+                  <label class="col-lg-3 col-form-label required fw-semibold fs-6">Rate</label>
+                  <div class="col-lg-9">
+                    <div class="row">
+                      <div class="col-lg-12 fv-row">
+                        <input type="text" name="rate" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="Enter Rate" required />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-end py-6 px-9">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../layouts/aside') %>

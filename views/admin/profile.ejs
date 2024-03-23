@@ -1,0 +1,163 @@
+<%- include('../layouts/header')%>
+    <%- include('../layouts/sidebar') %>
+        <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+            <!--begin::Content wrapper-->
+            <div class="d-flex flex-column flex-column-fluid">
+                <!--begin::Toolbar-->
+                <div id="kt_app_toolbar" class="app-toolbar pt-5">
+                    <!--begin::Toolbar container-->
+                    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex align-items-stretch">
+                        <!--begin::Toolbar wrapper-->
+                        <div class="app-toolbar-wrapper d-flex flex-stack flex-wrap gap-4 w-100">
+                            <!--begin::Page title-->
+                            <div class="page-title d-flex flex-column gap-1 me-3 mb-2">
+                                <!--begin::Breadcrumb-->
+                                <ul class="breadcrumb breadcrumb-separatorless fw-semibold mb-6">
+                                    <!--begin::Item-->
+                                    <li class="breadcrumb-item text-gray-700 fw-bold lh-1">
+                                        <a href="../dist/index.html" class="text-gray-500">
+                                            <i class="ki-duotone ki-home fs-3 text-gray-400 me-n1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                                    </li>
+                                    <a href="/dashboard">
+                                        <li class="ms-2 breadcrumb-item text-gray-700 fw-bold lh-1">Dashboard</li>
+                                    </a>
+                                    <li class="breadcrumb-item">
+                                        <i class="ki-duotone ki-right fs-4 text-gray-700 mx-n1"></i>
+                                    </li>
+                                    <a href="/profile">
+                                        <li class="ms-2 breadcrumb-item text-gray-700 fw-bold lh-1">Profile</li>
+                                    </a>
+                                </ul>
+                                <h1
+                                    class="page-heading d-flex flex-column justify-content-center text-dark fw-bolder fs-1 lh-0">
+                                    Profile</h1>
+                            </div>
+                        </div>
+                        <!--end::Toolbar wrapper-->
+                    </div>
+                    <!--end::Toolbar container-->
+                </div>
+                <!--end::Toolbar-->
+                <!--begin::Content-->
+                <div id="kt_app_content" class="app-content flex-column-fluid">
+                    <!--begin::Content container-->
+                    <div id="kt_app_content_container" class="app-container container-fluid">
+                        <div class="card mb-5 mb-xl-10">
+                            <!--begin::Card header-->
+                            <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+                                data-bs-target="#kt_account_profile_details" aria-expanded="true"
+                                aria-controls="kt_account_profile_details">
+                                <!--begin::Card title-->
+                                <div class="card-title m-0">
+                                    <h3 class="fw-bold m-0">Profile Details</h3>
+                                </div>
+                                <!--end::Card title-->
+                            </div>
+
+                            <div id="kt_account_settings_profile_details" class="collapse show">
+                                <!--begin::Form-->
+                                <form action="/profile" method="post" enctype="multipart/form-data"
+                                    class="form">
+                                    <div class="card-body border-top p-9">
+                                        <div class="row mb-6">
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">Avatar</label>
+                                            <div class="col-lg-8">
+                                                <div class="image-input image-input-outline" data-kt-image-input="true"
+                                                    style="background-image: url('../../../assets/media/svg/avatars/blank.svg')">
+                                                    <img class="image-input-wrapper w-125px h-125px galleryimg"
+                                                        src="">
+                                                    <label
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                                        title="Change avatar">
+                                                        <i class="ki-duotone ki-pencil fs-7">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                                        <input type="hidden" name="avatar_remove" />
+                                                    </label>
+                                                    <span
+                                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                                        title="Cancel avatar">
+                                                        <i class="ki-duotone ki-cross fs-2">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </div>
+                                                <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-6">
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">First Name</label>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-lg-12 fv-row">
+                                                        <input type="text" name="firstname"
+                                                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="Enter Your Full name"
+                                                            value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-6">
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">Last Name</label>
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <div class="col-lg-12 fv-row">
+                                                        <input type="text" name="lastname"
+                                                            class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                            placeholder="Enter Your Full name"
+                                                            value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-6">
+                                            <label
+                                                class="col-lg-4 col-form-label required fw-semibold fs-6">Email</label>
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="email" name="email"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Enter Your Email" value=""
+                                                    disabled />
+                                            </div>
+                                        </div>
+                                        <div class="row mb-6">
+                                            <label class="col-lg-4 col-form-label fw-semibold fs-6">
+                                                <span class="required">Phone</span>
+                                                <span class="ms-1" data-bs-toggle="tooltip"
+                                                    title="Phone number must be active">
+                                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                    </i>
+                                                </span>
+                                            </label>
+                                            <div class="col-lg-8 fv-row">
+                                                <input type="tel" name="contact"
+                                                    class="form-control form-control-lg form-control-solid"
+                                                    placeholder="Phone number" value="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-end py-6 px-9">
+                                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../layouts/aside') %>

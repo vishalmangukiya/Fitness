@@ -1,0 +1,62 @@
+<!--begin::Wrapper-->
+<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+    <!--begin::Sidebar-->
+    <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar"
+        data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px"
+        data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+        <!--begin::Main-->
+        <div class="d-flex flex-column justify-content-between h-100 hover-scroll-overlay-y my-2 d-flex flex-column"
+            id="kt_app_sidebar_main" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto"
+            data-kt-scroll-dependencies="#kt_app_header" data-kt-scroll-wrappers="#kt_app_main"
+            data-kt-scroll-offset="5px">
+            <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
+                class="flex-column-fluid menu menu-sub-indention menu-column menu-rounded menu-bg mb-7">
+                <div class="menu-item">
+                    <span class="menu-link">
+                        <a href="/dashboard" class="d-flex addactive">
+                            <span class="menu-icon" data-kt-menu-trigger="click">
+                                <i class="ki-duotone ki-element-11 fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                    <span class="path4"></span>
+                                </i>
+                            </span>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-link">
+                        <a href="/intro" class="d-flex addactive">
+                            <span class="menu-icon" data-kt-menu-trigger="click">
+                                <i class="fa-solid fa-signs-post fs-3"></i>
+                            </span>
+                            <span class="menu-title">Intro</span>
+                        </a>
+                    </span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-link">
+                        <a href="/bodyparts" class="d-flex addactive">
+                            <span class="menu-icon" data-kt-menu-trigger="click">
+                                <i class="fa-solid fa-person fs-2"></i>
+                            </span>
+                            <span class="menu-title">Body Parts</span>
+                        </a>
+                    </span>
+                </div>
+              
+                <div class="menu-item">
+                    <span class="menu-link">
+                        <a href="/workout" class="d-flex addactive">
+                            <span class="menu-icon" data-kt-menu-trigger="click">
+                                <i class="fa-solid fa-dumbbell fs-4"></i>
+                            </span>
+                            <span class="menu-title">Workouts</span>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,195 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+body {
+    background-color: #F8F2EC !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a {
+    color: #896868 !important;
+}
+
+.contain {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 230px;
+    gap: 30px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 20px; */
+    /* gap: 30px; */
+}
+
+form {
+    max-width: 380px;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+form input[type="text"],
+input[type="Password"] {
+    width: 100%;
+    font-size: 13px;
+    padding: 13px;
+    padding-left: 20px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    border: 3px solid #ededed;
+    border-radius: 50px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* form h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #7673c8; */
+/* color: #c89173; */
+/* margin-bottom: 10px;
+} */
+
+small {
+    font-size: 12px;
+    color: #c1c1c1;
+}
+
+.mor {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mor label {
+    margin: 0;
+    font-size: 13px;
+}
+
+.mor a {
+    position: absolute;
+    right: 0;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.log {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    border: 3px solid #ededed;
+    border-radius: 50px;
+    /* the real one for all border-radius: 5px; */
+    color: white;
+    border: 3px solid #896868;
+    background-color: #896868;
+    transition: .4s;
+}
+
+.log:hover {
+    background-color: #896868;
+}
+
+.check {
+    margin-right: 5px;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d9d9d9;
+}
+
+svg {
+    color: #c1c1c1;
+}
+
+.image {
+    width: 400px;
+    height: 515px;
+    border-radius: 40px;
+    background-color: rgb(191, 191, 191);
+    background-image: url(../../../assets/media/login/fitness1.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    padding-top: 130px;
+    flex-direction: column;
+}
+
+/* @keyframes pic {
+   0%   {
+       background-image: url(https://www.italymagazine.com/sites/default/files/2022-06/Lavender-Tuscany.jpg);
+   }
+   25%  {
+       background-image: url(https://static.vecteezy.com/system/resources/previews/002/044/744/original/lavender-field-at-sunset-free-photo.jpg);
+   }
+   50%  {
+       background-image: url(https://www.todocanada.ca/wp-content/uploads/16-Lavender-Farms-Located-Within-Two-Hours-of-Downtown-Toronto-For-a-Delightful-July-Stroll.jpg);
+   }
+   75% {
+       background-image: url(https://media.timeout.com/images/103951311/image.jpg);
+   }
+   100% {
+       background-image: url(https://www.italymagazine.com/sites/default/files/2022-06/Lavender-Tuscany.jpg);
+   }
+} */
+
+.sign {
+    max-width: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    margin: 20px;
+    /* float: right; */
+    cursor: pointer;
+    color: #5c59a7;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+.image h1 {
+    margin: 20px;
+    color: #896868;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media only screen and (max-width: 860px) {
+    .image {
+        display: none;
+    }
+}

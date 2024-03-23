@@ -1,0 +1,212 @@
+ .dash-menu {
+     cursor: pointer;
+     display: flex !important;
+     align-items: center;
+     padding: 0;
+     flex: 0 0 100%;
+     gap: 8px !important;
+     padding: 0.65rem 1rem;
+     transition: none;
+     outline: none !important;
+ }
+
+ .dash-menu .menu-title {
+     color: #181c32;
+     font-size: 1.15rem;
+     font-weight: 600;
+ }
+
+ .menu-item .dash-link {
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     padding: 0;
+     flex: 0 0 100%;
+     padding: 0.65rem 1rem;
+     transition: none;
+     outline: none !important;
+ }
+
+ .richText .richText-editor {
+     height: 125px !important;
+ }
+
+ .richText {
+     border-radius: 12px !important;
+ }
+
+ .galleryimg {
+     object-fit: cover;
+ }
+
+ .dash-bullet {
+     flex-shrink: 0;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 1.25rem;
+     margin-right: 0.5rem;
+ }
+
+ .gallerywrapper {
+     position: relative;
+ }
+
+ .gallerywrapper:before {
+     position: absolute;
+     content: '';
+     background: #000;
+     width: 100%;
+     height: 100%;
+     z-index: 999;
+     opacity: 0;
+     border-radius: 9px;
+     transition: all ease-in-out 0.5s;
+ }
+
+ .gallerywrapper:hover::before {
+     opacity: 0.7;
+ }
+
+ .gallerywrapper .d-flex.flex-center.flex-wrap {
+     position: absolute;
+     top: 40%;
+     left: 0;
+     right: 0;
+     opacity: 0;
+     z-index: 999;
+     transition: all ease-in-out 0.8s;
+ }
+
+ .gallerywrapper:hover>.d-flex.flex-center.flex-wrap {
+     opacity: 1;
+ }
+
+ .toggle-switch {
+     position: relative;
+     display: inline-block;
+     width: 42px;
+     height: 20px;
+ }
+
+ .toggle-switch input {
+     display: none;
+ }
+
+ .slider {
+     position: absolute;
+     cursor: pointer;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #ccc;
+     border-radius: 34px;
+     transition: 0.4s;
+ }
+
+ .slider:before {
+     position: absolute;
+     content: "";
+     height: 15px;
+     width: 15px;
+     left: 4px;
+     bottom: 4px;
+     top: 2px;
+     background-color: white;
+     border-radius: 50%;
+     transition: 0.4s;
+ }
+
+ .toggle-switch input:checked+.slider {
+     background-color: #2196F3;
+ }
+
+ .toggle-switch input:checked+.slider:before {
+     transform: translateX(20px);
+ }
+
+ /* Additional styling for text */
+ .toggle-switch label {
+     display: flex;
+     align-items: center;
+     margin-left: 10px;
+ }
+
+ .card.dish-info img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     border-radius: 10px;
+ }
+
+ ul.ingredients-info li,
+ ul.steps-info li {
+     font-size: 14px;
+ }
+
+ ul.steps-info {
+     list-style-type: none;
+     margin-left: 0px;
+     padding-left: 0px;
+ }
+
+ ul.ingredients-info {
+     list-style-type: none;
+     position: relative;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     column-gap: 40px;
+ }
+
+ .vertically {
+     width: 0 !important;
+     height: auto;
+     border-left: 1px solid #E1E3EA;
+     border-left-style: dashed;
+ }
+
+ /* .hoverImg {
+     position: relative;
+ }
+ .hoverImg:before {
+    position: absolute;
+    content: '';
+    background-color: #000;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    transition: all ease-in-out 0.3s;
+} */
+
+ /* .bullet-dot-dash {
+     width: 6px !important;
+     height: 6px !important;
+     border-radius: 100% !important;
+ }
+
+ .bullet-1 {
+     display: inline-block;
+     background-color: var(--bs-bullet-bg-color);
+     border-radius: 6px;
+     width: 8px;
+     height: 4px;
+     flex-shrink: 0;
+ } */
+ /* 
+ .bullet-1 :hover {
+    background-color: black;
+
+ } */
+ /* 
+ 
+ .dash-sub-menu  {
+    color: #181c32;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+.dash-sub-menu :hover {
+    color: black
+ }  */

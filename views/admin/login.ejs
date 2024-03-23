@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Author: Keenthemes
+Product Name: Saul
+Product Version: 1.0.0
+Upgrade to Pro: https://keenthemes.com/products/saul-html-pro
+Website: http://www.keenthemes.com
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
+-->
+<html lang="en">
+
+<head>
+	<base href="../../" />
+	<title>Meditation</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="Saul HTML Free - Bootstrap 5 HTML Multipurpose Admin Dashboard Theme" />
+	<meta name="keywords"
+		content="Saul, bootstrap, bootstrap 5, dmin themes, free admin themes, bootstrap admin, bootstrap dashboard" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Saul HTML Free - Bootstrap 5 HTML Multipurpose Admin Dashboard Theme" />
+	<meta property="og:url" content="https://keenthemes.com/products/saul-html-pro" />
+	<meta property="og:site_name" content="Keenthemes | Saul HTML Free" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@500;600;800&display=swap"
+		rel="stylesheet">
+</head>
+<script src="https://unpkg.com/feather-icons"></script>
+<link rel="canonical" href="https://preview.keenthemes.com/saul-html-free" />
+<link rel="shortcut icon" href="<%= process.env.BASE_URL %>/assets/media/logos/favicon.ico" />
+<!--begin::Fonts(mandatory for all pages)-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+<!--end::Fonts-->
+<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+<link href="<%= process.env.BASE_URL %>/assets/css/login.css" rel="stylesheet" type="text/css" />
+
+<link href="<%= process.env.BASE_URL %>/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="<%= process.env.BASE_URL %>/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="contain">
+		<div class="login">
+			<form action="/dashboard" method="">
+				<h1>Welcome Back!</h1>
+				<small>Login to your account and start connecting with the world. Your journey begins here.</small><br>
+				<% if (typeof message !=='undefined' ) { %>
+					<p style="color: rgb(255, 0, 0)" class="fs-4 fw-bold mt-2 mb-0">
+						<%= message %>
+					</p>
+					<% } %>
+								<label for="email">Email</label>
+								<input placeholder="Enter Email" type="text" name="email" id="">
+								<label for="pass">Password</label>
+								<input placeholder="Enter Password" type="password" name="password" id="">
+								<div class="mor">
+									<input class="check" type="checkbox"><label for="check">Remember Me</label>
+								</div>
+								<input class="log" type="submit" name="" value="Login" id="">
+			</form>
+		</div>
+
+		<div class="image">
+			<!-- <h1>Quiet the mind and the soul will speak.</h1> -->
+		</div>
+
+	</div>
+
+	<script>
+		feather.replace()
+	</script>
+</body>
+
+</html>
