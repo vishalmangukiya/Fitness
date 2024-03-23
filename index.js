@@ -1,9 +1,10 @@
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 require('dotenv').config();
 
 const app = express();
-
+app.set('view cache', true);
 app.set('view engine', 'ejs');
 app.set('views', [
     path.join(__dirname, 'views'),
@@ -20,7 +21,7 @@ app.use('/', require('./routes/admin'));
 app.get('*', function (req, res) {
     res.redirect('/login');
 });
-
+app.use(compression({ level: 6 }));
 app.listen(process.env.PORT || 1234, (err) => {
     if (err) {
         console.log('Server Not Started');
