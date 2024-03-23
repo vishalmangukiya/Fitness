@@ -12,8 +12,15 @@ app.set('views', [
     path.join(__dirname, 'views/user')
 ])
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: '1d' // Cache CSS files for 1 day
+}));
+
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
+    maxAge: '1d' // Cache CSS files for 1 day
+}));
 
 
 app.use('/', require('./routes/admin'));
